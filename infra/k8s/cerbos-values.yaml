@@ -1,0 +1,31 @@
+cerbos:
+  config:
+    server:
+      adminAPI:
+        enabled: true
+        adminCredentials: # default credentials of cerbos:cerbosAdmin
+          username: cerbos
+          passwordHash: JDJ5JDEwJEdEOVFzZDE2VVhoVkR0N2VkUFBVM09nalc0QnNZaC9xc2E4bS9mcUJJcEZXenp5OUpjMi91Cgo=
+    storage:
+      driver: "git"
+      git:
+        protocol: https
+        url: https://github.com/cerbos/demo-app-expenses.git
+        branch: main
+        subDir: cerbos
+        updatePollInterval: 0
+    telemetry:
+      disabled: true
+    tracing:
+      serviceName: cerbos
+      sampleProbability: 1
+      exporter: otlp
+      otlp:
+        collectorEndpoint: "jaeger-collector.monitoring.svc.cluster.local:4317"
+    audit:
+      enabled: true
+      accessLogsEnabled: true
+      decisionLogsEnabled: true
+      backend: file
+      file:
+        path: stdout

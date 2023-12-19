@@ -1,0 +1,25 @@
+server:
+  httpListenAddr: ":3592"
+  grpcListenAddr: ":3593"
+storage:
+ driver: bundle
+ bundle:
+   remote:
+     bundleLabel: main # The label to load policies for
+   credentials:
+     clientID: ${CERBOS_HUB_CLIENT_ID:""} # ClientID
+     clientSecret: ${CERBOS_HUB_CLIENT_SECRET:""} # ClientSecret
+     workspaceSecret: ${CERBOS_HUB_WORKSPACE_SECRET:""} # WorkspaceSecret to decrypt the bundles -- generated during workspace creation
+tracing:
+  serviceName: cerbos
+  sampleProbability: 1
+  exporter: otlp
+  otlp:
+    collectorEndpoint: "jaeger:4318"
+audit:
+  enabled: true
+  accessLogsEnabled: true
+  decisionLogsEnabled: true
+  backend: file
+  file:
+    path: stdout
