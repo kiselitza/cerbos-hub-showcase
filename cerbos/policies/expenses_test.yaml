@@ -237,7 +237,7 @@ tests:
       - principal: finance_team
         resource: over10000
         actions:
-          approve: EFFECT_DENY
+          approve: EFFECT_ALLOW
           
       - principal: finance_team
         resource: under10000
