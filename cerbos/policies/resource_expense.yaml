@@ -82,7 +82,7 @@ resourcePolicy:
         match:
           all:
             of:
-              - expr: request.resource.attr.amount < 10000
+              - expr: request.resource.attr.amount < 20000
               - expr: request.resource.attr.ownerId != request.principal.id
               - expr: request.resource.attr.status == "OPEN"
 
